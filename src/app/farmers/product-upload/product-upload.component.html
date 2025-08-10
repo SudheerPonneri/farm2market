@@ -1,1 +1,24 @@
-<p>product-upload works!</p>
+<div class="upload-bg">
+  <form [formGroup]="f" (ngSubmit)="submit()" class="upload-form" autocomplete="off" novalidate>
+    <h2>Upload Crop Details</h2>
+    <div>
+      <label for="cropName">Crop Name:</label>
+      <input id="cropName" type="text" formControlName="cropName" placeholder="Enter crop name" required />
+    </div>
+    <div>
+      <label for="quantity">Quantity (kg):</label>
+      <input id="quantity" type="number" formControlName="quantity" placeholder="Enter quantity" required min="1" />
+    </div>
+    <div>
+      <label for="price">Price per kg (₹):</label>
+      <input id="price" type="number" formControlName="price" placeholder="Enter price" required min="1" />
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" placeholder="Describe your crop" rows="3"></textarea>
+    </div>
+    <div>
+      <button type="submit" [disabled]="f.invalid">Upload Product</button>
+    </div>
+  </form>
+</div>
