@@ -7,7 +7,9 @@
       <li><strong>Phone:</strong> {{ farmer.phone }}</li>
       <li><strong>Village:</strong> {{ farmer.village }}</li>
     </ul>
-    <button class="upload-btn" routerLink="/farmer/upload">Upload Product</button>
+    <button class="upload-btn" routerLink="/farmer/upload">
+      <span class="upload-icon">⬆️</span> Go to Product Upload
+    </button>
   </div>
   <div *ngIf="!farmer" class="no-info">
     <p>No farmer information found. Please log in.</p>

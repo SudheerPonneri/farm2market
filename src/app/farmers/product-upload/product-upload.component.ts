@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Product } from '../../models/product.model';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-product-upload',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './product-upload.component.html',
   styleUrl: './product-upload.component.scss'
 })
 export class ProductUploadComponent {
   f;
-  constructor(private fb: FormBuilder, private auth: AuthService) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.f = this.fb.group({
       cropName: ['', [Validators.required, Validators.minLength(2)]],
       quantity: [1, [Validators.required, Validators.min(1)]],
@@ -39,5 +41,9 @@ export class ProductUploadComponent {
     localStorage.setItem('products', JSON.stringify(products));
     this.f.reset();
     alert('Product uploaded!');
+  }
+
+  goToDashboard() {
+    this.router.navigate(['/farmer/dashboard']);
   }
 }

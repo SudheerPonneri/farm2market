@@ -1,17 +1,14 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User, Role } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private userKey = 'fr_user';
-  private isBrowser: boolean;
   private _user$: BehaviorSubject<User | null>;
   user$: Observable<User | null>;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
+  constructor() {
     this._user$ = new BehaviorSubject<User | null>(this.loadUser());
     this.user$ = this._user$.asObservable();
   }
@@ -29,17 +26,13 @@ export class AuthService {
       village: details?.village,
       // password is not stored for security in real apps, but included here for demo
     };
-    if (this.isBrowser) {
-      localStorage.setItem(this.userKey, JSON.stringify(user));
-    }
+    localStorage.setItem(this.userKey, JSON.stringify(user));
     this._user$.next(user);
     return user;
   }
 
   logout() {
-    if (this.isBrowser) {
-      localStorage.removeItem(this.userKey);
-    }
+    localStorage.removeItem(this.userKey);
     this._user$.next(null);
   }
 
@@ -48,11 +41,8 @@ export class AuthService {
   }
 
   private loadUser(): User | null {
-    if (this.isBrowser) {
-      const raw = localStorage.getItem(this.userKey);
-      return raw ? (JSON.parse(raw) as User) : null;
-    }
-    return null;
+    const raw = localStorage.getItem(this.userKey);
+    return raw ? (JSON.parse(raw) as User) : null;
   }
 
   private makeId(len = 12) {

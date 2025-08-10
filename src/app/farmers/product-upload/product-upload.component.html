@@ -1,5 +1,10 @@
 <div class="upload-bg">
   <form [formGroup]="f" (ngSubmit)="submit()" class="upload-form" autocomplete="off" novalidate>
+    <div class="dashboard-btn-row">
+      <button class="dashboard-btn back-btn" type="button" (click)="goToDashboard()">
+        ← Go to Dashboard
+      </button>
+    </div>
     <h2>Upload Crop Details</h2>
     <div>
       <label for="cropName">Crop Name:</label>
@@ -18,7 +23,9 @@
       <textarea id="description" formControlName="description" placeholder="Describe your crop" rows="3"></textarea>
     </div>
     <div>
-      <button type="submit" [disabled]="f.invalid">Upload Product</button>
+      <button class="upload-btn" type="submit" [disabled]="f.invalid">
+        <span class="upload-icon">⬆️</span> Upload Product
+      </button>
     </div>
   </form>
 </div>
