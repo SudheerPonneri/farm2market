@@ -4,4 +4,6 @@ export interface User {
   id: string;
   username: string;
   role: Role;
+  phone?: string;
+  village?: string;
 }

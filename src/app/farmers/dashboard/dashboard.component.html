@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <h2>Welcome, {{ farmer?.username || 'Farmer' }}!</h2>
+  <div class="farmer-card" *ngIf="farmer">
+    <h3>Farmer Details</h3>
+    <ul>
+      <li><strong>Name:</strong> {{ farmer.username }}</li>
+      <li><strong>Phone:</strong> {{ farmer.phone }}</li>
+      <li><strong>Village:</strong> {{ farmer.village }}</li>
+    </ul>
+  </div>
+  <div *ngIf="!farmer" class="no-info">
+    <p>No farmer information found. Please log in.</p>
+  </div>
+</div>
