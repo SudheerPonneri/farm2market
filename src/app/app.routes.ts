@@ -15,7 +15,7 @@ import { CartComponent } from './consumers/cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'consumer/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'farmer/login', pathMatch: 'full' },
 
   // Farmer routes
   { path: 'farmer/login', component: LoginComponent },

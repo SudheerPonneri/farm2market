@@ -16,8 +16,19 @@ export class AuthService {
     this.user$ = this._user$.asObservable();
   }
 
-  login(username: string, role: Role): User {
-    const user: User = { id: this.makeId(), username, role };
+  login(
+    username: string,
+    role: Role,
+    details?: { phone?: string; village?: string; password?: string }
+  ): User {
+    const user: User = {
+      id: this.makeId(),
+      username,
+      role,
+      phone: details?.phone,
+      village: details?.village,
+      // password is not stored for security in real apps, but included here for demo
+    };
     if (this.isBrowser) {
       localStorage.setItem(this.userKey, JSON.stringify(user));
     }
