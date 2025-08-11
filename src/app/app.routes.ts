@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './farmers/login/login.component';
 import { DashboardComponent } from './farmers/dashboard/dashboard.component';
 import { ProductUploadComponent } from './farmers/product-upload/product-upload.component';
+import { MainComponent } from './farmers/main/main.component';
 
 // Consumer Components
 import { LoginComponent as ConsumerLoginComponent } from './consumers/login/login.component';
@@ -15,9 +16,10 @@ import { CartComponent } from './consumers/cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'farmer/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'farmer', pathMatch: 'full' },
 
   // Farmer routes
+  { path: 'farmer', component: MainComponent },
   { path: 'farmer/login', component: LoginComponent },
   { path: 'farmer/dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'farmer/upload', component: ProductUploadComponent, canActivate: [AuthGuard] },

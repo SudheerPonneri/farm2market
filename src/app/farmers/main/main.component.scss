@@ -1,0 +1,70 @@
+.main-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #e0f7fa 0%, #c8e6c9 100%);
+}
+
+.main-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.13);
+  padding: 2.8rem 2.5rem 2.5rem 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-card h1 {
+  color: #2e7d32;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.desc {
+  color: #333;
+  font-size: 1.13rem;
+  margin-bottom: 2.1rem;
+  line-height: 1.6;
+}
+
+.main-btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.main-btn {
+  padding: 0.95rem 2.2rem;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.13rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #43a047 60%, #388e3c 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(67,160,71,0.13);
+  transition: background 0.18s, box-shadow 0.18s, transform 0.13s;
+  outline: none;
+}
+.main-btn:hover, .main-btn:focus {
+  background: linear-gradient(90deg, #388e3c 60%, #43a047 100%);
+  box-shadow: 0 4px 24px rgba(67,160,71,0.18);
+  transform: translateY(-2px) scale(1.03);
+}
+.login-btn {
+  background: linear-gradient(90deg, #1976d2 60%, #388e3c 100%);
+}
+.login-btn:hover, .login-btn:focus {
+  background: linear-gradient(90deg, #1565c0 60%, #43a047 100%);
+}
+.register-btn {
+  background: linear-gradient(90deg, #43a047 60%, #fbc02d 100%);
+  color: #fff;
+}
+.register-btn:hover, .register-btn:focus {
+  background: linear-gradient(90deg, #388e3c 60%, #fbc02d 100%);
+}
