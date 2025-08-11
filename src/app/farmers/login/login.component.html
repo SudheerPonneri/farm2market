@@ -1,79 +1,25 @@
 <div class="login-bg">
   <form [formGroup]="f" (ngSubmit)="submit()" autocomplete="off" novalidate class="login-form">
-    <h2>Farmer Login / Register</h2>
+    <h2>Farmer Login</h2>
     <div>
-      <label for="farmerName">Full Name:</label>
-      <input
-        id="farmerName"
-        type="text"
-        formControlName="username"
-        placeholder="Enter your name"
-        required
-        [class.invalid]="f.get('username')?.invalid && (f.get('username')?.touched || f.get('username')?.dirty)"
-        aria-describedby="usernameError"
-        autocomplete="name"
-      />
-      <div *ngIf="f.get('username')?.invalid && (f.get('username')?.touched || f.get('username')?.dirty)" id="usernameError" class="error">
-        <span *ngIf="f.get('username')?.errors?.['required']">Name is required.</span>
-        <span *ngIf="f.get('username')?.errors?.['minlength']">Name must be at least 3 characters.</span>
-        <span *ngIf="f.get('username')?.errors?.['maxlength']">Name cannot exceed 32 characters.</span>
+      <label for="username">Username</label>
+      <input id="username" type="text" formControlName="username" placeholder="Enter your username" required [class.invalid]="f.get('username')?.invalid && (f.get('username')?.touched || f.get('username')?.dirty)" autocomplete="username" />
+      <div *ngIf="f.get('username')?.invalid && (f.get('username')?.touched || f.get('username')?.dirty)" class="error">
+        <span *ngIf="f.get('username')?.errors?.['required']">Username is required.</span>
+        <span *ngIf="f.get('username')?.errors?.['minlength']">Username must be at least 3 characters.</span>
+        <span *ngIf="f.get('username')?.errors?.['maxlength']">Username cannot exceed 32 characters.</span>
       </div>
     </div>
     <div>
-      <label for="farmerPhone">Phone Number:</label>
-      <input
-        id="farmerPhone"
-        type="tel"
-        formControlName="phone"
-        placeholder="Enter your phone number"
-        required
-        pattern="[0-9]{10}"
-        [class.invalid]="f.get('phone')?.invalid && (f.get('phone')?.touched || f.get('phone')?.dirty)"
-        aria-describedby="phoneError"
-        autocomplete="tel"
-      />
-      <div *ngIf="f.get('phone')?.invalid && (f.get('phone')?.touched || f.get('phone')?.dirty)" id="phoneError" class="error">
-        <span *ngIf="f.get('phone')?.errors?.['required']">Phone number is required.</span>
-        <span *ngIf="f.get('phone')?.errors?.['pattern']">Enter a valid 10-digit phone number.</span>
-      </div>
-    </div>
-    <div>
-      <label for="farmerVillage">Village:</label>
-      <input
-        id="farmerVillage"
-        type="text"
-        formControlName="village"
-        placeholder="Enter your village name"
-        required
-        [class.invalid]="f.get('village')?.invalid && (f.get('village')?.touched || f.get('village')?.dirty)"
-        aria-describedby="villageError"
-        autocomplete="address-level2"
-      />
-      <div *ngIf="f.get('village')?.invalid && (f.get('village')?.touched || f.get('village')?.dirty)" id="villageError" class="error">
-        <span *ngIf="f.get('village')?.errors?.['required']">Village is required.</span>
-      </div>
-    </div>
-    <div>
-      <label for="farmerPassword">Password:</label>
-      <input
-        id="farmerPassword"
-        type="password"
-        formControlName="password"
-        placeholder="Enter your password"
-        required
-        minlength="6"
-        [class.invalid]="f.get('password')?.invalid && (f.get('password')?.touched || f.get('password')?.dirty)"
-        aria-describedby="passwordError"
-        autocomplete="new-password"
-      />
-      <div *ngIf="f.get('password')?.invalid && (f.get('password')?.touched || f.get('password')?.dirty)" id="passwordError" class="error">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" placeholder="Enter your password" required minlength="6" [class.invalid]="f.get('password')?.invalid && (f.get('password')?.touched || f.get('password')?.dirty)" autocomplete="current-password" />
+      <div *ngIf="f.get('password')?.invalid && (f.get('password')?.touched || f.get('password')?.dirty)" class="error">
         <span *ngIf="f.get('password')?.errors?.['required']">Password is required.</span>
         <span *ngIf="f.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</span>
       </div>
     </div>
     <div>
-      <button type="submit" [disabled]="f.invalid || f.pending">Login as Farmer</button>
+      <button type="submit" [disabled]="f.invalid || f.pending">Login</button>
     </div>
   </form>
 </div>
-

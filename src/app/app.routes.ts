@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 
 // Farmer Components
-import { LoginComponent } from './farmers/login/login.component';
+import { RegisterComponent } from './farmers/register/register.component';
+import { FarmerLoginComponent } from './farmers/login/login.component';
 import { DashboardComponent } from './farmers/dashboard/dashboard.component';
 import { ProductUploadComponent } from './farmers/product-upload/product-upload.component';
 import { MainComponent } from './farmers/main/main.component';
@@ -20,7 +21,8 @@ export const routes: Routes = [
 
   // Farmer routes
   { path: 'farmer', component: MainComponent },
-  { path: 'farmer/login', component: LoginComponent },
+  { path: 'farmer/login', component: FarmerLoginComponent },
+  { path: 'farmer/register', component: RegisterComponent },
   { path: 'farmer/dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'farmer/upload', component: ProductUploadComponent, canActivate: [AuthGuard] },
 
