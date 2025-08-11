@@ -7,10 +7,11 @@
   background: linear-gradient(120deg, #e0f7fa 0%, #c8e6c9 100%);
 }
 
+
 .login-form {
   max-width: 400px;
   width: 100%;
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  padding: 0rem 3rem 3rem 3rem;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 32px rgba(44, 62, 80, 0.13);
@@ -40,6 +41,7 @@ input[type="text"],
 input[type="tel"],
 input[type="password"] {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.7rem 0.9rem;
   border: 1.5px solid #bdbdbd;
   border-radius: 7px;
@@ -91,9 +93,10 @@ div {
   margin-bottom: 0.5rem;
 }
 form {
-  max-width: 360px;
+  max-width: 400px;
+  width: 100%;
   margin: 48px auto;
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  padding: 2.5rem 2rem 2rem 2rem;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);

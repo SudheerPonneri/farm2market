@@ -87,7 +87,7 @@
   font-size: 1.13rem;
   font-weight: 700;
   letter-spacing: 0.1px;
-  padding-left: 0.6rem;
+  padding: 0rem 1rem 0rem 1rem;
 }
 .upload-bg {
   min-height: 100vh;
@@ -100,7 +100,7 @@
 .upload-form {
   max-width: 400px;
   width: 100%;
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  padding: 1rem 4.5rem 2rem 3rem;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 32px rgba(44, 62, 80, 0.13);
@@ -112,7 +112,8 @@
 .upload-form h2 {
   text-align: center;
   color: #2e7d32;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
+  margin-top: 0rem;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.5px;
