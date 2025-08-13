@@ -16,4 +16,26 @@ export class DashboardComponent {
   constructor(private auth: AuthService) {
     this.farmer = this.auth.currentUser;
   }
+farmerCrops = [
+  // Example:
+  {
+    cropName: 'Wheat',
+    quantity: 100,
+    price: 25,
+    date: new Date(),
+    description: 'High quality wheat',
+    imageUrl: '', // optional
+  }
+];
+  cropTypeClass(name: string) {
+  const n = name?.toLowerCase() || '';
+  if (n.includes('wheat')) return 'wheat';
+  if (n.includes('rice')) return 'rice';
+  if (n.includes('corn')) return 'corn';
+  if (n.includes('soy')) return 'soybean';
+  if (n.includes('sugar')) return 'sugarcane';
+  if (n.includes('tomato')) return 'tomato';
+  if (n.includes('potato')) return 'potato';
+  return 'default';
+}
 }

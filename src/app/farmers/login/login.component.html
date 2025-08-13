@@ -1,25 +1,41 @@
 <div class="login-bg">
   <form [formGroup]="f" (ngSubmit)="submit()" autocomplete="off" novalidate class="login-form">
-    <h2>Farmer Login</h2>
-    <div>
+    <h2>
+      <span class="login-icon">🌾</span>
+      Farmer Login
+    </h2>
+    <div class="input-group">
       <label for="username">Username</label>
-      <input id="username" type="text" formControlName="username" placeholder="Enter your username" required [class.invalid]="f.get('username')?.invalid && (f.get('username')?.touched || f.get('username')?.dirty)" autocomplete="username" />
+      <div class="input-wrapper">
+        <input id="username" type="text" formControlName="username" placeholder="Enter your username" required
+          [class.invalid]="f.get('username')?.invalid && (f.get('username')?.touched || f.get('username')?.dirty)"
+          autocomplete="username" />
+        <span class="input-icon"><i class="material-icons">person</i></span>
+      </div>
       <div *ngIf="f.get('username')?.invalid && (f.get('username')?.touched || f.get('username')?.dirty)" class="error">
         <span *ngIf="f.get('username')?.errors?.['required']">Username is required.</span>
         <span *ngIf="f.get('username')?.errors?.['minlength']">Username must be at least 3 characters.</span>
         <span *ngIf="f.get('username')?.errors?.['maxlength']">Username cannot exceed 32 characters.</span>
       </div>
     </div>
-    <div>
+    <div class="input-group">
       <label for="password">Password</label>
-      <input id="password" type="password" formControlName="password" placeholder="Enter your password" required minlength="6" [class.invalid]="f.get('password')?.invalid && (f.get('password')?.touched || f.get('password')?.dirty)" autocomplete="current-password" />
+      <div class="input-wrapper">
+        <input id="password" type="password" formControlName="password" placeholder="Enter your password" required minlength="6"
+          [class.invalid]="f.get('password')?.invalid && (f.get('password')?.touched || f.get('password')?.dirty)"
+          autocomplete="current-password" />
+        <span class="input-icon"><i class="material-icons">lock</i></span>
+      </div>
       <div *ngIf="f.get('password')?.invalid && (f.get('password')?.touched || f.get('password')?.dirty)" class="error">
         <span *ngIf="f.get('password')?.errors?.['required']">Password is required.</span>
         <span *ngIf="f.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</span>
       </div>
     </div>
     <div>
-      <button type="submit" [disabled]="f.invalid || f.pending">Login</button>
+      <button type="submit" [disabled]="f.invalid || f.pending">
+        <span class="btn-icon">➡️</span>
+        Login
+      </button>
     </div>
   </form>
 </div>

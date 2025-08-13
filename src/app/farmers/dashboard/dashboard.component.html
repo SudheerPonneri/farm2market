@@ -1,17 +1,66 @@
-<div class="dashboard-container">
-  <h2>Welcome, {{ farmer?.username || 'Farmer' }}!</h2>
-  <div class="farmer-card" *ngIf="farmer">
-    <h3>Farmer Details</h3>
-    <ul>
-      <li><strong>Name:</strong> {{ farmer.username }}</li>
-      <li><strong>Phone:</strong> {{ farmer.phone }}</li>
-      <li><strong>Village:</strong> {{ farmer.village }}</li>
-    </ul>
-    <button class="upload-btn" routerLink="/farmer/upload">
-      <span class="upload-icon">⬆️</span> Go to Product Upload
-    </button>
-  </div>
-  <div *ngIf="!farmer" class="no-info">
-    <p>No farmer information found. Please log in.</p>
+<div class="dashboard-bg">
+  <section class="hero">
+    <div class="hero-content">
+      <h2>
+        <span class="hero-icon material-icons">emoji_nature</span>
+        Welcome, {{ farmer?.username || 'Farmer' }}!
+      </h2>
+      <p class="hero-sub">Your personalized farmer dashboard</p>
+    </div>
+  </section>
+
+  <div class="dashboard-content">
+    <div class="farmer-profile-card" *ngIf="farmer">
+      <div class="profile-avatar">
+        <span class="material-icons">account_circle</span>
+      </div>
+      <div class="profile-details">
+        <h3>Farmer Profile</h3>
+        <ul>
+          <li><span class="material-icons">person</span> <strong>Name:</strong> {{ farmer.username }}</li>
+          <li><span class="material-icons">phone</span> <strong>Phone:</strong> {{ farmer.phone }}</li>
+          <li><span class="material-icons">location_on</span> <strong>Village:</strong> {{ farmer.village }}</li>
+        </ul>
+        <button class="upload-btn" routerLink="/farmer/upload">
+          <span class="upload-icon material-icons">cloud_upload</span>
+          Upload New Crop
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="farmerCrops?.length" class="crops-section">
+      <h3 class="section-heading">
+        <span class="material-icons">agriculture</span>
+        Your Crops
+      </h3>
+      <div class="crops-grid">
+        <div
+          class="crop-card"
+          *ngFor="let crop of farmerCrops"
+          [ngClass]="cropTypeClass(crop.cropName)"
+          [@fadeIn]>
+          <div class="crop-img">
+            <img *ngIf="crop.imageUrl" [src]="crop.imageUrl" [alt]="crop.cropName" />
+            <span *ngIf="!crop.imageUrl" class="material-icons crop-placeholder">eco</span>
+          </div>
+          <div class="crop-info">
+            <h4>{{ crop.cropName }}</h4>
+            <div class="crop-meta">
+              <span><span class="material-icons">scale</span> {{ crop.quantity }} kg</span>
+              <span><span class="material-icons">attach_money</span> ₹{{ crop.price }}/kg</span>
+            </div>
+            <div class="crop-date">
+              <span class="material-icons">calendar_today</span>
+              {{ crop.date | date:'mediumDate' }}
+            </div>
+            <p class="crop-desc" *ngIf="crop.description">{{ crop.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!farmerCrops?.length" class="no-crops">
+      <span class="material-icons">info</span>
+      No crops uploaded yet. Start by uploading your first crop!
+    </div>
   </div>
 </div>
