@@ -25,11 +25,11 @@ export class DashboardComponent {
       description: 'High quality wheat',
       imageUrl: '', 
     }, {
-      cropName: 'Rice',
+      cropName: 'corn',
       quantity: 200,
       price: 45,
       date: new Date(),
-      description: 'High quality Rice',
+      description: 'High quality corn',
       imageUrl: '', 
     }, {
       cropName: 'Potato',
@@ -37,6 +37,20 @@ export class DashboardComponent {
       price: 45,
       date: new Date(),
       description: 'High quality potato',
+      imageUrl: '', 
+    },{
+      cropName: 'soybean',
+      quantity: 200,
+      price: 45,
+      date: new Date(),
+      description: 'High quality soybean',
+      imageUrl: '', 
+    },{
+      cropName: 'sugarcane',
+      quantity: 200,
+      price: 45,
+      date: new Date(),
+      description: 'High quality sugarcane',
       imageUrl: '', 
     }
   ];
