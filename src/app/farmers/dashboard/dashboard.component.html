@@ -1,15 +1,14 @@
 <div class="dashboard-bg">
-  <section class="hero">
-    <div class="hero-content">
-      <h2>
-        <span class="hero-icon material-icons">emoji_nature</span>
-        Welcome, {{ farmer?.username || 'Farmer' }}!
-      </h2>
-      <p class="hero-sub">Your personalized farmer dashboard</p>
-    </div>
-  </section>
-
-  <div class="dashboard-content">
+  <div class="dashboard-header">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>
+          <span class="hero-icon material-icons">emoji_nature</span>
+          Welcome, {{ farmer?.username || 'Farmer' }}!
+        </h2>
+        <p class="hero-sub">Your personalized farmer dashboard</p>
+      </div>
+    </section>
     <div class="farmer-profile-card" *ngIf="farmer">
       <div class="profile-avatar">
         <span class="material-icons">account_circle</span>
@@ -27,6 +26,7 @@
         </button>
       </div>
     </div>
+  </div>
 
     <div *ngIf="farmerCrops?.length" class="crops-section">
       <h3 class="section-heading">
@@ -37,8 +37,8 @@
         <div
           class="crop-card"
           *ngFor="let crop of farmerCrops"
-          [ngClass]="cropTypeClass(crop.cropName)"
-          [@fadeIn]>
+          [ngClass]="cropTypeClass(crop.cropName)">
+          
           <div class="crop-img">
             <img *ngIf="crop.imageUrl" [src]="crop.imageUrl" [alt]="crop.cropName" />
             <span *ngIf="!crop.imageUrl" class="material-icons crop-placeholder">eco</span>
@@ -63,4 +63,3 @@
       No crops uploaded yet. Start by uploading your first crop!
     </div>
   </div>
-</div>
